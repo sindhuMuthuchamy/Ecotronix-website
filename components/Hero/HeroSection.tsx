@@ -44,12 +44,12 @@ const HeroSection = () => {
         />
       </div>
 
-      <div className="relative z-5 text-center pt-32">
-        <h1 className="absolute mx-80 text-center mb-10 font-bold text-4xl">
+      <div className="relative z-5 text-center sm:px-8 lg:pt-20 md:px-10 ">
+        <h1 className=" text-center mb-10 font-bold text-[15px] sm:text-xl md:text-2xl pt-10 lg:text-3xl">
           {currentProduct.text}
         </h1>
 
-        <div className="flex justify-center gap-12 mt-20">
+        <div className="flex justify-center gap-12 md:mt-20 ">
           {products.map((item, i) => (
             <div
               key={i}
@@ -68,7 +68,7 @@ const HeroSection = () => {
                       : "border-gray-500 hover:border-blue-500 hover:shadow-[0_0_35px_rgba(43,127,255,0.8)] active:shadow-[0_0_35px_rgba(43,127,255,0.8)]"
                   }`}
               />
-              <p className="mt-2 mb-10 text-2xl">{item.title}</p>
+              <p className="mt-2 mb-10 text-[10px] sm:text-[15px] lg:text-2xl md:text-xl">{item.title}</p>
             </div>
           ))}
         </div>
