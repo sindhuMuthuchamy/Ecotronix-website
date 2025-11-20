@@ -25,9 +25,12 @@ const Navbar = () => {
           <Image
             src="/assets/images/logo.svg"
             alt="BusinessName"
-            width={75}
-            height={75}
-            className="w-auto h-auto"
+            width={175}
+            height={175}
+            // Mobile: 100px wide
+            // Medium screens (tablets): 140px wide
+            // Large screens (desktop): 175px wide
+            className="h-auto w-[100px] md:w-[140px] lg:w-[175px]"
           />
         </Link>
 
