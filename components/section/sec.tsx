@@ -2,15 +2,15 @@
 
 const Section = () => {
   return (
-    <section className="flex flex-col md:flex-row items-center justify-between px-30 py-20 gap-10 bg-white">
+    <section className="flex flex-col md:flex-row items-center justify-between px-5 lg:px-30 py-20 gap-10 bg-white">
       
       {/* Image */}
       <div className="flex-1">
         <Image 
           src="/assets/images/image-rf-core.png"
           alt="RF image"
-          width={9000}
-          height={6000}
+          width={940}
+          height={640}
           className="rounded-lg object-cover w-full h-auto"
         />
       </div>
