@@ -30,12 +30,12 @@ const Navbar = () => {
             // Mobile: 100px wide
             // Medium screens (tablets): 140px wide
             // Large screens (desktop): 175px wide
-            className="h-auto w-[100px] md:w-[140px] lg:w-[175px]"
+            className="h-auto w-[100px] md:w-[130px] lg:w-[180px]"
           />
         </Link>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex space-x-7 items-center">
+        <ul className="hidden md:flex md:space-x-3 lg:space-x-7.5 items-center lg:text-[20px] lg:font-semibold md:text-[15px] md:font-semibold">
           {navLinks.map((link) => (
             <li key={link.href}>
               <Link

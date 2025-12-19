@@ -35,27 +35,27 @@ const ServiceOrbitMQ = () => {
   const [currentProduct, setCurrentProduct] = useState(Products[0]);
 
   return (
-    <section className="lg:px-12 lg:py-15 px-4 py-6 ">
+    <section className="lg:px-10 px-2 py-4 ">
       <div>
         <h1 className="lg:text-4xl md:text-3xl text-2xl font-extrabold mb-2">Products & Services</h1>
-        <p className="lg:text-xl text-[14px] text-gray-600">We provide high-quality RF Solutions.</p>
+        <p className="lg:text-xl text-[14px] text-gray-600 font-semibold">We provide high-quality RF Solutions.</p>
       </div>
 
-      <div className="  md:flex md:flex-col lg:mt-5">
+      <div className=" md:flex md:flex-col lg:mt-4 md:mt-2">
         
         {/* LEFT – LIST */}
-        <ul className="space-y-8 w-full pt-4">
+        <ul className="space-y-8 w-full pt-2">
           {Products.map((item, index) => {
             const isActive = currentProduct.title === item.title;
 
             return (
               <li
                 key={index}
-                className="pb-6 lg:pt-2 border-b border-gray-300 cursor-pointer group"
+                className="pb-4 lg:pt-2 border-b border-gray-300 cursor-pointer group"
                 onMouseEnter={() => setCurrentProduct(item)}
                 onClick={() => setCurrentProduct(item)}
               >
-                <div className="flex items-center gap-3 ">
+                <div className="flex items-center gap-2 ">
                   <span
                     className={`lg:text-3xl md:text-2xl text-[14px] ${
                       isActive ? "text-blue-600" : "text-gray-400"

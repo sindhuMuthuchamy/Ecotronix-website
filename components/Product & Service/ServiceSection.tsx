@@ -11,8 +11,8 @@ const ServiceSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="relative overflow-hidden bg-white py-20 lg:py-32 min-h-[800px]"  id="product-container">
-      <div className="container mx-auto px-6 lg:px-12 relative z-10 grid grid-cols-1 xl:grid-cols-2 gap-12" id="product-sec">
+    <section className="relative overflow-hidden bg-white py-10 md:py-12 lg:py-16  min-h-[800px]"  id="product-container">
+      <div className="container mx-auto px-3  lg:px-6 relative z-10 grid grid-cols-1 xl:grid-cols-2 gap-12" id="product-sec">
         
         {/* LEFT COLUMN: Text & List */}
         <section className="hidden md:hidden lg:hidden xl:block">

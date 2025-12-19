@@ -34,13 +34,13 @@ const HeroSection = () => {
   const [currentProduct, setCurrentProduct] = useState(products[0]);
 
   return (
-    <section className="bg-black text-white relative overflow-hidden">
+    <section className="bg-black text-white relative overflow-hidden p-5 md:p-2 lg:p-1">
       <div className="absolute inset-0 bg-cover bg-center transition-all duration-500">
         <Image
           src={currentProduct.bgimg}
           alt="Background"
           fill
-          className=" w-{100%} h-{100%} opacity-60"
+          className=" w-{100%} h-{100%} opacity-60 "
         />
       </div>
 
@@ -49,7 +49,7 @@ const HeroSection = () => {
           {currentProduct.text}
         </h1>
 
-        <div className="flex justify-center gap-12 md:mt-20 ">
+        <div className="flex justify-center gap-12 md:mt-15 mt-8 ">
           {products.map((item, i) => (
             <div
               key={i}
