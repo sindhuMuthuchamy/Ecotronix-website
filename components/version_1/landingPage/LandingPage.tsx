@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { HeroCarousel, HeroSlide } from "../components/HeroCarousel";
 import { FullScreenMenu } from "../components/Navbar";
+import { IndustrySection } from "./SecondSection";
 const heroSlides: HeroSlide[] = [
   {
     id: 1,
@@ -46,6 +47,7 @@ export default function LandingPage() {
         autoPlayInterval={5000}
         onMenuClick={() => setIsMenuOpen(true)}
       />
+      <IndustrySection />
       <FullScreenMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
     </div>
   );
