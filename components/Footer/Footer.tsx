@@ -1,3 +1,4 @@
+"use client";
 import Button from "../ui/Button";
 import Image from "next/image";
 
@@ -50,4 +51,4 @@ const Footer = () => {
     )
 }
 
-export default Footer
+export default Footer;
