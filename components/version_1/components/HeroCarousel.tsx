@@ -124,57 +124,9 @@ export function HeroCarousel({
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
-      {/* Animated gradient orbs background */}
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.div
-          className="absolute top-0 left-0 w-[800px] h-[800px] rounded-full opacity-30 blur-3xl"
-          style={{
-            background: "radial-gradient(circle, rgba(139, 92, 246, 0.8) 0%, transparent 70%)",
-          }}
-          animate={{
-            x: [0, 100, 0],
-            y: [0, -100, 0],
-            scale: [1, 1.2, 1],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-        />
-        <motion.div
-          className="absolute bottom-0 right-0 w-[600px] h-[600px] rounded-full opacity-30 blur-3xl"
-          style={{
-            background: "radial-gradient(circle, rgba(59, 130, 246, 0.8) 0%, transparent 70%)",
-          }}
-          animate={{
-            x: [0, -100, 0],
-            y: [0, 100, 0],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{
-            duration: 15,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-        />
-        <motion.div
-          className="absolute top-1/2 left-1/2 w-[700px] h-[700px] rounded-full opacity-20 blur-3xl"
-          style={{
-            background: "radial-gradient(circle, rgba(236, 72, 153, 0.6) 0%, transparent 70%)",
-            transform: "translate(-50%, -50%)",
-          }}
-          animate={{
-            scale: [1, 1.3, 1],
-            rotate: [0, 180, 360],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-        />
-      </div>
+
+
+
 
       {/* Image carousel */}
       <AnimatePresence initial={false} custom={direction} mode="popLayout">
@@ -192,7 +144,7 @@ export function HeroCarousel({
           }}
           className="absolute inset-0"
         >
-          <div className="absolute inset-0 bg-linear-to-b from-black/60 via-black/40 to-black/80 z-10" />
+          <div className="absolute inset-0 bg-linear-to-b from-black/20 via-transparent to-black/60 z-10" />
           {slides[currentSlide].mediaType === "image" && (
             <img
               src={slides[currentSlide].image}
@@ -214,7 +166,6 @@ export function HeroCarousel({
           )}
         </motion.div>
       </AnimatePresence>
-
       {/* Menu button in top right corner */}
       {onMenuClick && (
         <motion.button
@@ -256,7 +207,7 @@ export function HeroCarousel({
             animate="center"
             exit="exit"
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-center max-w-5xl"
+            className="text-center max-w-5xl bg-black/20 backdrop-blur-sm border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl"
           >
             {/* Title with shimmer effect */}
             <motion.h1
