@@ -12,10 +12,10 @@ interface IndustrySectionProps {
 }
 
 export function IndustrySection({
-  title = "Change The Way Of Manufacturing",
-  subtitle = "Global",
-  heading = "Industrial Inspection Solution Leader",
-  description = "산업 현장에서 시리얼 검증된 머신비전(MV), 비파괴검사(NDT) 기술과 적업장 통합데이터 강사, 실시간 공장 모니터링 등을 아우르는 일체적 토탈 검사 솔루션 및 서비스를 제공합니다.",
+  title = "Change The Way Of Thinking",
+  subtitle = "About Us",
+  heading = "Ecotronix",
+  description = "당사는 Eco-Life를 위한친환경제품을창조하는기업으로 최고의 품질의 제품을 제공하여 설치의 편의성 과 유지 보수의 최소화를 목표로 하고 있습니다.",
   buttonText = "Find Out More",
   videoUrl = "https://www.pexels.com/download/video/852388/",
 }: IndustrySectionProps) {
@@ -85,7 +85,7 @@ export function IndustrySection({
   }, []);
 
   return (
-    <div className="relative bg-white overflow-hidden">
+    <div className="relative bg-white overflow-hidden" id="about">
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
           className="absolute top-20 right-10 w-96 h-96 rounded-full opacity-5 blur-3xl"

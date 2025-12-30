@@ -3,6 +3,8 @@ import { useState } from "react";
 import { HeroCarousel, HeroSlide } from "../components/HeroCarousel";
 import { FullScreenMenu } from "../components/Navbar";
 import { IndustrySection } from "./SecondSection";
+import { BusinessSection } from "./ThirdSection";
+import { ContactSection } from "./FourthSection";
 import { NavigationMenu } from "@/components/Navbar/NavigationMenu";
 const heroSlides: HeroSlide[] = [
   {
@@ -52,6 +54,8 @@ export default function LandingPage() {
           />
         
       <IndustrySection />
+      <BusinessSection />
+      <ContactSection />
       {/* <FullScreenMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} /> */}
       </div>
     </div>
