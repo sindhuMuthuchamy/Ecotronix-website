@@ -3,6 +3,7 @@ import { useState } from "react";
 import { HeroCarousel, HeroSlide } from "../components/HeroCarousel";
 import { FullScreenMenu } from "../components/Navbar";
 import { IndustrySection } from "./SecondSection";
+import { NavigationMenu } from "@/components/Navbar/NavigationMenu";
 const heroSlides: HeroSlide[] = [
   {
     id: 1,
@@ -13,14 +14,14 @@ const heroSlides: HeroSlide[] = [
   },
   {
     id: 2,
-    title: "Intelligent Architecture",
+    title: "Intelligent Texture",
     description: "Explore the intricate pathways of modern electronics where billions of transistors work in harmony to power tomorrow's innovations.",
     image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDN8fGFpfGVufDB8fDB8fHwy",
     mediaType: "image",
   },
   {
     id: 3,
-    title: "Infinite Processing Power",
+    title: "Infinite AI Power",
     description: "Witness the backbone of the digital age where massive server farms process petabytes of data, enabling the cloud computing revolution.",
     image: "https://images.unsplash.com/photo-1580894894513-541e068a3e2b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     mediaType: "image",
@@ -39,16 +40,20 @@ export default function LandingPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <div className="w-full h-screen">
-      <HeroCarousel
-        slides={heroSlides}
-        currentSlide={currentSlide}
-        onSlideChange={setCurrentSlide}
-        autoPlayInterval={5000}
-        onMenuClick={() => setIsMenuOpen(true)}
-      />
+    <div className="w-full">
+      <NavigationMenu />
+      <div className="">
+          <HeroCarousel
+            slides={heroSlides}
+            currentSlide={currentSlide}
+            onSlideChange={setCurrentSlide}
+            autoPlayInterval={5000}
+            onMenuClick={() => setIsMenuOpen(true)}
+          />
+        
       <IndustrySection />
-      <FullScreenMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
+      {/* <FullScreenMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} /> */}
+      </div>
     </div>
   );
 }

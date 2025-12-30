@@ -119,7 +119,7 @@ export function HeroCarousel({
 
   return (
     <div
-      className="relative w-full h-screen overflow-hidden bg-black"
+      className="relative w-full h-[calc(100vh-150px)] overflow-hidden bg-black"
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
@@ -167,7 +167,7 @@ export function HeroCarousel({
         </motion.div>
       </AnimatePresence>
       {/* Menu button in top right corner */}
-      {onMenuClick && (
+      {/* {onMenuClick && (
         <motion.button
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -180,8 +180,8 @@ export function HeroCarousel({
         >
           <Menu className="w-6 h-6" />
         </motion.button>
-      )}
-
+      )} */}
+{/* 
       <motion.div
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
@@ -195,7 +195,7 @@ export function HeroCarousel({
           height={175}
           className="h-10 md:h-12 lg:h-14 w-auto object-contain"
         />
-      </motion.div>
+      </motion.div> */}
 
       {/* Content overlay */}
       <div className="relative z-20 h-full flex flex-col items-center justify-center px-6 md:px-12 lg:px-24">
