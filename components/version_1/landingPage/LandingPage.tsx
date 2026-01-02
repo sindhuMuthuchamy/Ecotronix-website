@@ -3,6 +3,7 @@ import { useState } from "react";
 import { HeroCarousel, HeroSlide } from "../components/HeroCarousel";
 import { FullScreenMenu } from "../components/Navbar";
 import { IndustrySection } from "./SecondSection";
+import ScrollToTopButton from "./scrolltotopbutton";
 const heroSlides: HeroSlide[] = [
   {
     id: 1,
@@ -49,6 +50,7 @@ export default function LandingPage() {
       />
       <IndustrySection />
       <FullScreenMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
+      <ScrollToTopButton />
     </div>
   );
 }
