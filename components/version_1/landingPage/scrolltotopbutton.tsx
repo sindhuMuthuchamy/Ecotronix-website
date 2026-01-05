@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { FaArrowCircleUp } from "react-icons/fa";
 
 const ScrollToTopButton = () => {
   const [visible, setVisible] = useState(false);
@@ -38,7 +39,7 @@ const ScrollToTopButton = () => {
       "
       aria-label="Scroll to top"
     >
-      TOP
+      <FaArrowCircleUp className="w-6 h-6"/>
     </button>
   );
 };
