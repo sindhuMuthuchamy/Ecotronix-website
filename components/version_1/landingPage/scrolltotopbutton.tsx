@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { FaArrowCircleUp } from "react-icons/fa";
 
 const ScrollToTopButton = () => {
   const [visible, setVisible] = useState(false);
@@ -31,7 +30,7 @@ const ScrollToTopButton = () => {
         fixed bottom-6 right-6 z-50
         h-12 w-12
         rounded-full
-        bg-purple-400 text-white
+        bg-[#d65745] text-white
         shadow-lg
         flex items-center justify-center
         hover:bg-purple-600
