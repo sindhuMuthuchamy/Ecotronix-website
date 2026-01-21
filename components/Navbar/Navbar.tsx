@@ -4,37 +4,62 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Button from "../ui/Button";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const Navbar = () => {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY.current) {
+        // Scrolling down
+        if (currentScrollY > 100) {
+          setIsVisible(false);
+        }
+      } else {
+        // Scrolling up
+        setIsVisible(true);
+      }
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const navLinks = [
-    { href: "/", label: "Home" },
-    { href: "/business-area", label: "Business Area" },
-    { href: "/r-and-d", label: "R&D" },
-    { href: "/customer-support", label: "Customer Support" },
-    { href: "/news-or-notices", label: "News/Notices" },
+    { href: "#about", label: "회사소개" },
+    { href: "#business", label: "사업분야" },
+    { href: "/r-and-d", label: "연구개발" },
+    { href: "#contact", label: "고객지원" },
+    { href: "/news-or-notices", label: "뉴스/공지" },
   ];
 
   return (
-    <nav className="bg-white shadow-md py-4">
+    <nav
+      className={`bg-white shadow-md py-6 sticky top-0 z-50 transition-transform duration-300 ${
+        isVisible ? "translate-y-0" : "-translate-y-full"
+      }`}
+    >
       <div className="mx-auto flex justify-between items-center px-4 max-w-7xl">
-        <Link href="/" className="text-lg font-bold flex-shrink-0">
+        <Link href="/" className="text-lg font-bold shrink-0">
           <Image
             src="/assets/images/logo.svg"
             alt="BusinessName"
             width={175}
             height={175}
-            // Mobile: 100px wide
-            // Medium screens (tablets): 140px wide
-            // Large screens (desktop): 175px wide
             className="h-auto w-[100px] md:w-[140px] lg:w-[175px]"
           />
         </Link>
 
-        {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-7 items-center">
           {navLinks.map((link) => (
             <li key={link.href}>
@@ -49,8 +74,6 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
-
-        {/* Hamburger Icon */}
         <button
           className="md:hidden flex flex-col justify-center items-center w-10 h-10"
           onClick={() => setMenuOpen((prev) => !prev)}
@@ -73,8 +96,8 @@ const Navbar = () => {
           />
         </button>
         <div className="hidden md:flex">
-          <Link href="/contact">
-            <Button variant="gradient">Contact Us</Button>
+          <Link href="#contact">
+            <Button variant="gradient">문의하기</Button>
           </Link>
         </div>
       </div>

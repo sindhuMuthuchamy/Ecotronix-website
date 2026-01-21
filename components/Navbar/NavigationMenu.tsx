@@ -2,9 +2,11 @@ import { motion } from "motion/react";
 
 export function NavigationMenu() {
   const menuItems = [
-    { label: "회사 소개", href: "#about" },
-    { label: "주요 사업", href: "#business" },
-    { label: "문의하기", href: "#contact" },
+    { href: "#about", label: "회사소개" },
+    { href: "#business", label: "사업분야" },
+    { href: "/r-and-d", label: "연구개발" },
+    { href: "#contact", label: "고객지원" },
+    { href: "/news-or-notices", label: "뉴스/공지" },
   ];
 
   return (
