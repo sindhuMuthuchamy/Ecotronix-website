@@ -207,9 +207,8 @@ export function HeroCarousel({
             animate="center"
             exit="exit"
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-center max-w-5xl bg-black/20 backdrop-blur-sm border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl"
+            className="text-center max-w-5xl bg-black/20 backdrop-blur-[3px] border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl"
           >
-            {/* Title with shimmer effect */}
             <motion.h1
               className="text-5xl md:text-7xl lg:text-8xl mb-6 text-white relative"
               initial={{ opacity: 0, y: 30 }}

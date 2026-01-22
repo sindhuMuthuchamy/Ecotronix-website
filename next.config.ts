@@ -8,6 +8,10 @@ const nextConfig: NextConfig = {
         hostname: 'www.rfcore.com',
         pathname: '/images/**',
         },
+        {
+          protocol: 'https',
+          hostname: 'images.unsplash.com',
+        },
     ],
   },  
 };

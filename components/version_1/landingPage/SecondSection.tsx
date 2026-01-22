@@ -15,8 +15,8 @@ export function IndustrySection({
   title = "Change The Way Of Thinking",
   subtitle = "About Us",
   heading = "Ecotronix",
-  description = "당사는 Eco-Life를 위한친환경제품을창조하는기업으로 최고의 품질의 제품을 제공하여 설치의 편의성 과 유지 보수의 최소화를 목표로 하고 있습니다.",
-  buttonText = "Find Out More",
+  description = `에코트로닉스는 30년 이상 축적된 전자·제조 기술력을 기반으로 선박용 항해전자장비, 글로벌 EMS/ODM, AI 기반 스마트 솔루션 등 다양한 산업 분야에서 고신뢰 기술과 제품을 제공하는 종합 기술 기업입니다.`,
+  buttonText = "상세페이지로",
   videoUrl = "https://www.pexels.com/download/video/852388/",
 }: IndustrySectionProps) {
   const sectionRef = useRef<HTMLDivElement>(null);

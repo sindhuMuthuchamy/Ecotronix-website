@@ -10,7 +10,16 @@ const Navbar = () => {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
+  const [activeSection, setActiveSection] = useState("");
   const lastScrollY = useRef(0);
+
+  const navLinks = [
+    { href: "#about", label: "회사소개" },
+    { href: "#business", label: "사업분야" },
+    { href: "#research", label: "연구개발" },
+    { href: "#contact", label: "고객지원" },
+    { href: "#news", label: "뉴스/공지" },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,18 +39,30 @@ const Navbar = () => {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
 
+    // Intersection Observer for active section
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(`#${entry.target.id}`);
+          }
+        });
+      },
+      { rootMargin: "-50% 0px -50% 0px" } // Trigger when section is in the middle of viewport
+    );
+
+    const sections = document.querySelectorAll("div[id], section[id]");
+    sections.forEach((section) => {
+      if (navLinks.some((link) => link.href === `#${section.id}`)) {
+        observer.observe(section);
+      }
+    });
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      observer.disconnect();
     };
-  }, []);
-
-  const navLinks = [
-    { href: "#about", label: "회사소개" },
-    { href: "#business", label: "사업분야" },
-    { href: "/r-and-d", label: "연구개발" },
-    { href: "#contact", label: "고객지원" },
-    { href: "/news-or-notices", label: "뉴스/공지" },
-  ];
+  }, []); // Only run once on mount
 
   return (
     <nav
@@ -65,9 +86,16 @@ const Navbar = () => {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className={`transition-colors ${
-                  pathname === link.href ? "text-blue-500" : ""
+                className={`transition-colors font-medium ${
+                  activeSection === link.href
+                    ? "text-blue-600"
+                    : "text-slate-600 hover:text-blue-500"
                 }`}
+                onClick={(e) => {
+                    e.preventDefault();
+                    document.querySelector(link.href)?.scrollIntoView({ behavior: 'smooth' });
+                    setActiveSection(link.href);
+                }}
               >
                 {link.label}
               </Link>
@@ -110,10 +138,17 @@ const Navbar = () => {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className={`block px-4 py-2 ${
-                    pathname === link.href ? "text-blue-500" : ""
+                  className={`block px-4 py-2 font-medium ${
+                    activeSection === link.href
+                      ? "text-blue-600"
+                      : "text-slate-600"
                   }`}
-                  onClick={() => setMenuOpen(false)}
+                  onClick={(e) => {
+                     e.preventDefault();
+                     setMenuOpen(false);
+                     document.querySelector(link.href)?.scrollIntoView({ behavior: 'smooth' });
+                     setActiveSection(link.href);
+                  }}
                 >
                   {link.label}
                 </Link>

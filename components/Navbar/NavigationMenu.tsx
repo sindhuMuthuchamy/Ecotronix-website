@@ -4,9 +4,9 @@ export function NavigationMenu() {
   const menuItems = [
     { href: "#about", label: "회사소개" },
     { href: "#business", label: "사업분야" },
-    { href: "/r-and-d", label: "연구개발" },
+    { href: "#research", label: "연구개발" },
     { href: "#contact", label: "고객지원" },
-    { href: "/news-or-notices", label: "뉴스/공지" },
+    { href: "#news", label: "뉴스/공지" },
   ];
 
   return (

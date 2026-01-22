@@ -8,27 +8,30 @@ import { ContactSection } from "./FourthSection";
 import { NavigationMenu } from "@/components/Navbar/NavigationMenu";
 import ScrollToTopButton from "./scrolltotopbutton";
 import Navbar from "@/components/Navbar/Navbar";
+import { BusinessField } from "./BusinessField";
+import { ResearchDevelopmentSection } from "./ResearchDevelopmentSection";
+import { CustomerSupportSection } from "./CustomerSupport";
 const heroSlides: HeroSlide[] = [
   {
     id: 1,
     title: "Marine",
     description: "Discover the future of maritime innovation, where advanced engineering meets the vast power of the ocean to drive global connectivity.",
-    video: "https://www.pexels.com/download/video/4825305/",
-    mediaType: "video",
+    image: "/assets/images/marine_radar.png",
+    mediaType: "image",
   },
   {
     id: 2,
     title: "Based on AI",
     description: "Experience the power of AI as it transforms industries, drives innovation, and shapes the future of technology.",
-    video: "https://www.pexels.com/download/video/14209120/",
-    mediaType: "video",
+    image: "/assets/images/ai_head.png",
+    mediaType: "image",
   },
   {
     id: 3,
     title: "Smart Factory",
     description: "Experience the future of manufacturing where automation and AI work together to create a more efficient and sustainable production process.",
-    video: "https://www.pexels.com/download/video/30900354/",
-    mediaType: "video",
+    image: "/assets/images/smart_factory.png",
+    mediaType: "image",
   }
   // {
   //   id: 4,
@@ -57,7 +60,10 @@ export default function LandingPage() {
           />
         
       <IndustrySection />
-      <BusinessSection />
+      {/* <BusinessSection/> */}
+      <BusinessField />
+      <ResearchDevelopmentSection />
+      <CustomerSupportSection />
       <ContactSection />
       {/* <FullScreenMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} /> */}
       <ScrollToTopButton />
