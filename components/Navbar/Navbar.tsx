@@ -93,8 +93,22 @@ const Navbar = () => {
                 }`}
                 onClick={(e) => {
                     e.preventDefault();
-                    document.querySelector(link.href)?.scrollIntoView({ behavior: 'smooth' });
-                    setActiveSection(link.href);
+                    // Custom scroll logic to ensure reliability and offset
+                    const targetId = link.href.replace('#', '');
+                    const element = document.getElementById(targetId);
+                    
+                    if (element) {
+                        const headerOffset = 100; // Adjust for sticky header height
+                        const elementPosition = element.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.scrollY - headerOffset;
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: "smooth"
+                        });
+                        
+                        setActiveSection(link.href);
+                    }
                 }}
               >
                 {link.label}
@@ -124,7 +138,23 @@ const Navbar = () => {
           />
         </button>
         <div className="hidden md:flex">
-          <Link href="#contact">
+          <Link href="#contact"
+            onClick={(e) => {
+                e.preventDefault();
+                const element = document.getElementById('contact');
+                if (element) {
+                    const headerOffset = 100;
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.scrollY - headerOffset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                    setActiveSection("#contact");
+                }
+            }}
+          >
             <Button variant="gradient">문의하기</Button>
           </Link>
         </div>
@@ -146,8 +176,22 @@ const Navbar = () => {
                   onClick={(e) => {
                      e.preventDefault();
                      setMenuOpen(false);
-                     document.querySelector(link.href)?.scrollIntoView({ behavior: 'smooth' });
-                     setActiveSection(link.href);
+                     
+                     const targetId = link.href.replace('#', '');
+                     const element = document.getElementById(targetId);
+                     
+                     if (element) {
+                         const headerOffset = 100;
+                         const elementPosition = element.getBoundingClientRect().top;
+                         const offsetPosition = elementPosition + window.scrollY - headerOffset;
+                         
+                         window.scrollTo({
+                             top: offsetPosition,
+                             behavior: "smooth"
+                         });
+                         
+                         setActiveSection(link.href);
+                     }
                   }}
                 >
                   {link.label}
