@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
+import Link from "next/link";
 
 interface IndustrySectionProps {
   title?: string;
@@ -201,40 +202,42 @@ export function IndustrySection({
                 viewport={{ once: true }}
                 transition={{ delay: 0.5, duration: 0.6 }}
               >
-                <motion.button
-                  whileHover={{ scale: 1.05, x: 5 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="group relative px-8 py-4 bg-linear-to-r from-cyan-500 to-blue-600 text-white rounded-lg overflow-hidden shadow-lg shadow-cyan-500/30"
-                >
-                  <span className="relative z-10 flex items-center gap-2">
-                    {buttonText}
-                    <motion.svg
-                      className="w-5 h-5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      animate={{ x: [0, 5, 0] }}
-                      transition={{
-                        duration: 1.5,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                      }}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M13 7l5 5m0 0l-5 5m5-5H6"
-                      />
-                    </motion.svg>
-                  </span>
-                  <motion.div
-                    className="absolute inset-0 bg-linear-to-r from-blue-600 to-purple-600"
-                    initial={{ x: "-100%" }}
-                    whileHover={{ x: 0 }}
-                    transition={{ duration: 0.3 }}
-                  />
-                </motion.button>
+                <Link href="/about">
+                  <motion.button
+                    whileHover={{ scale: 1.05, x: 5 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="group relative px-8 py-4 bg-linear-to-r from-cyan-500 to-blue-600 text-white rounded-lg overflow-hidden shadow-lg shadow-cyan-500/30"
+                  >
+                    <span className="relative z-10 flex items-center gap-2">
+                      {buttonText}
+                      <motion.svg
+                        className="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        animate={{ x: [0, 5, 0] }}
+                        transition={{
+                          duration: 1.5,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                        }}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M13 7l5 5m0 0l-5 5m5-5H6"
+                        />
+                      </motion.svg>
+                    </span>
+                    <motion.div
+                      className="absolute inset-0 bg-linear-to-r from-blue-600 to-purple-600"
+                      initial={{ x: "-100%" }}
+                      whileHover={{ x: 0 }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  </motion.button>
+                </Link>
               </motion.div>
 
               {/* Decorative stats or features */}

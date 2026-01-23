@@ -17,8 +17,8 @@ const Navbar = () => {
     { href: "#about", label: "회사소개" },
     { href: "#business", label: "사업분야" },
     { href: "#research", label: "연구개발" },
-    { href: "#contact", label: "고객지원" },
-    { href: "#news", label: "뉴스/공지" },
+    { href: "#news", label: "고객지원" },
+    { href: "#contact", label: "뉴스/공지" },
   ];
 
   useEffect(() => {
@@ -39,7 +39,6 @@ const Navbar = () => {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
 
-    // Intersection Observer for active section
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -48,7 +47,7 @@ const Navbar = () => {
           }
         });
       },
-      { rootMargin: "-50% 0px -50% 0px" } // Trigger when section is in the middle of viewport
+      { rootMargin: "-50% 0px -50% 0px" }
     );
 
     const sections = document.querySelectorAll("div[id], section[id]");
@@ -85,29 +84,31 @@ const Navbar = () => {
           {navLinks.map((link) => (
             <li key={link.href}>
               <Link
-                href={link.href}
+                href={pathname === '/' ? link.href : '/' + link.href}
                 className={`transition-colors font-medium ${
                   activeSection === link.href
                     ? "text-blue-600"
                     : "text-slate-600 hover:text-blue-500"
                 }`}
                 onClick={(e) => {
-                    e.preventDefault();
-                    // Custom scroll logic to ensure reliability and offset
-                    const targetId = link.href.replace('#', '');
-                    const element = document.getElementById(targetId);
-                    
-                    if (element) {
-                        const headerOffset = 100; // Adjust for sticky header height
-                        const elementPosition = element.getBoundingClientRect().top;
-                        const offsetPosition = elementPosition + window.scrollY - headerOffset;
+                    if (pathname === '/') {
+                        e.preventDefault();
+                        // Custom scroll logic to ensure reliability and offset
+                        const targetId = link.href.replace('#', '');
+                        const element = document.getElementById(targetId);
                         
-                        window.scrollTo({
-                            top: offsetPosition,
-                            behavior: "smooth"
-                        });
-                        
-                        setActiveSection(link.href);
+                        if (element) {
+                            const headerOffset = 100; // Adjust for sticky header height
+                            const elementPosition = element.getBoundingClientRect().top;
+                            const offsetPosition = elementPosition + window.scrollY - headerOffset;
+                            
+                            window.scrollTo({
+                                top: offsetPosition,
+                                behavior: "smooth"
+                            });
+                            
+                            setActiveSection(link.href);
+                        }
                     }
                 }}
               >
@@ -138,20 +139,22 @@ const Navbar = () => {
           />
         </button>
         <div className="hidden md:flex">
-          <Link href="#contact"
+          <Link href={pathname === '/' ? "#contact" : "/#contact"}
             onClick={(e) => {
-                e.preventDefault();
-                const element = document.getElementById('contact');
-                if (element) {
-                    const headerOffset = 100;
-                    const elementPosition = element.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.scrollY - headerOffset;
-                    
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: "smooth"
-                    });
-                    setActiveSection("#contact");
+                if (pathname === '/') {
+                    e.preventDefault();
+                    const element = document.getElementById('contact');
+                    if (element) {
+                        const headerOffset = 100;
+                        const elementPosition = element.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.scrollY - headerOffset;
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: "smooth"
+                        });
+                        setActiveSection("#contact");
+                    }
                 }
             }}
           >
@@ -167,30 +170,32 @@ const Navbar = () => {
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
-                  href={link.href}
+                  href={pathname === '/' ? link.href : '/' + link.href}
                   className={`block px-4 py-2 font-medium ${
                     activeSection === link.href
                       ? "text-blue-600"
                       : "text-slate-600"
                   }`}
                   onClick={(e) => {
-                     e.preventDefault();
                      setMenuOpen(false);
-                     
-                     const targetId = link.href.replace('#', '');
-                     const element = document.getElementById(targetId);
-                     
-                     if (element) {
-                         const headerOffset = 100;
-                         const elementPosition = element.getBoundingClientRect().top;
-                         const offsetPosition = elementPosition + window.scrollY - headerOffset;
+                     if (pathname === '/') {
+                         e.preventDefault();
                          
-                         window.scrollTo({
-                             top: offsetPosition,
-                             behavior: "smooth"
-                         });
+                         const targetId = link.href.replace('#', '');
+                         const element = document.getElementById(targetId);
                          
-                         setActiveSection(link.href);
+                         if (element) {
+                             const headerOffset = 100;
+                             const elementPosition = element.getBoundingClientRect().top;
+                             const offsetPosition = elementPosition + window.scrollY - headerOffset;
+                             
+                             window.scrollTo({
+                                 top: offsetPosition,
+                                 behavior: "smooth"
+                             });
+                             
+                             setActiveSection(link.href);
+                         }
                      }
                   }}
                 >

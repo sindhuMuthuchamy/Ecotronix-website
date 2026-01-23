@@ -49,7 +49,7 @@ export default function LandingPage() {
   return (
     <div className="w-full">
       {/* <NavigationMenu /> */}
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="">
           <HeroCarousel
             slides={heroSlides}
